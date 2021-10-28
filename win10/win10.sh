@@ -49,7 +49,7 @@ EOF
 
 # Run on every script execution
 display() {
-	looking-glass-client win:size=3200x1800
+	looking-glass-client win:autoResize=yes input:escapeKey=100 input:rawMouse=yes
 }
 
 # Returns non-zero if script is running
