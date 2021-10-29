@@ -1,9 +1,7 @@
 #!/bin/bash
 
-CONNECT="qemu:///system"
-DOMAIN="win10"
-
-PIDFILE="/tmp/"$DOMAIN"_script.pid"
+src=$(dirname "$(realpath $0)")
+source $src/config.sh
 
 is_running() {
 	virsh --connect=$CONNECT domstate --domain=$DOMAIN | grep -q running
@@ -19,32 +17,6 @@ wait_exit() {
 			fi
 		done
 	fi
-}
-
-# Run once before the start of the vm
-start() {
-	echo "VM starting"
-
-	sudo -A -s -- <<EOF
-
-systemctl set-property --runtime -- user.slice AllowedCPUs=0-7,16-23
-systemctl set-property --runtime -- system.slice AllowedCPUs=0-7,16-23
-systemctl set-property --runtime -- init.scope AllowedCPUs=0-7,16-23
-
-EOF
-}
-
-# Run once after the stop of the vm
-stop() {
-	echo "VM stopped"
-
-	sudo -A -s -- <<EOF
-
-systemctl set-property --runtime -- user.slice AllowedCPUs=0-31
-systemctl set-property --runtime -- system.slice AllowedCPUs=0-31
-systemctl set-property --runtime -- init.scope AllowedCPUs=0-31
-
-EOF
 }
 
 # Run on every script execution
@@ -65,8 +37,15 @@ script_unique() {
 	return 0
 }
 
-# Run once for every lone start of the script (does not run if script is already running)
-script_start() {
+# Run once for every lone stop of the script (does not run if another instance is running)
+script_exit() {
+	wait_exit
+	sudo -A -s $src/stop.sh
+	rm -rf $PIDFILE
+}
+
+# Main
+if script_unique; then
 	echo $$ >$PIDFILE
 	if [ $? -ne 0 ]; then
 		echo "Could not create PID file"
@@ -76,28 +55,13 @@ script_start() {
 	if is_running; then
 		echo "VM already running"
 	else
-		start
+		sudo -A -s $src/start.sh
 		virsh --connect=$CONNECT start $DOMAIN
 	fi
-}
 
-# Run once for every execution of the script
-script_run() {
-	display
-}
-
-# Run once for every lone stop of the script (does not run if script is already running)
-script_exit() {
-	wait_exit
-	stop
-	rm -rf $PIDFILE
-}
-
-# Main
-if script_unique; then
-	script_start
 	trap script_exit EXIT
-	script_run
+	
+	display
 else
-	script_run
+	display
 fi
