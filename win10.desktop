@@ -1,7 +1,7 @@
 [Desktop Entry]
 Comment=Run Windows 10
-Exec=/home/stewi/Virtual/vfio/win10/win10.sh
-Icon=/home/stewi/Virtual/vfio/win10/win10.svg
+Exec=/home/stewi/Virtual/vfio/win10.sh
+Icon=/home/stewi/Virtual/vfio/win10.svg
 Name=Windows 10
 StartupWMClass=looking-glass-client
 Type=Application
