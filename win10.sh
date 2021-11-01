@@ -19,11 +19,6 @@ wait_exit() {
 	fi
 }
 
-# Run on every script execution
-display() {
-	looking-glass-client win:autoResize=yes input:escapeKey=100 input:rawMouse=yes
-}
-
 # Returns non-zero if script is running
 script_unique() {
 	if [ -f $PIDFILE ]; then
@@ -60,8 +55,6 @@ if script_unique; then
 	fi
 
 	trap script_exit EXIT
-	
-	display
-else
-	display
 fi
+
+$src/display.sh
