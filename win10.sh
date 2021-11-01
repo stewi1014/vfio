@@ -10,7 +10,7 @@ is_running() {
 
 wait_exit() {
 	if is_running; then
-		stdbuf -oL virsh --connect=qemu:///system event --domain=win10 --loop --event lifecycle | while read line; do
+		stdbuf -oL virsh --connect=qemu:///system event --domain=$DOMAIN --loop --event lifecycle | while read line; do
 			if [[ "$line" == *"Stopped Shutdown"* ]]; then
 				pkill -P $$ virsh
 				break
