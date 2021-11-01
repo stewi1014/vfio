@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Run once before the start of the vm
+# Run once before the start of the vm as root
 
 source $(dirname "$(realpath $0)")/config.sh
 assert_root
