@@ -17,9 +17,9 @@
  - signore_msrs=N report_ignored_msrs=Y
 
 # Passthrough
- - IOMMU Group 22
-	- 08:00.0 Nvidia VGA [10de:2208] (nvidia, vfio-pci)
-	- 08:00.1 Nvidia HDA [10de:1aef] (snd_hda_intel, vfio-pci)
+ - IOMMU Group 26
+	- 0b:00.0 Nvidia VGA [10de:2208] (nvidia, vfio-pci)
+	- 0b:00.1 Nvidia HDA [10de:1aef] (snd_hda_intel, vfio-pci)
 
 # Notes
 
