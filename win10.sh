@@ -1,7 +1,7 @@
 #!/bin/bash
 
-src=$(dirname "$(realpath $0)")
-source $src/config.sh
+src=$(dirname "$(realpath "$0")")
+source "$src/config.sh"
 
 is_running() {
 	virsh --connect=$CONNECT domstate --domain=$DOMAIN | grep -q running
@@ -35,7 +35,7 @@ script_unique() {
 # Run once for every lone stop of the script (does not run if another instance is running)
 script_exit() {
 	wait_exit
-	sudo -A -s $src/stop.sh
+	sudo -A -s "$src/stop.sh"
 	rm -rf $PIDFILE
 }
 
@@ -50,7 +50,7 @@ if script_unique; then
 	if is_running; then
 		echo "VM already running"
 	else
-		sudo -A -s $src/start.sh
+		sudo -A -s "$src/start.sh"
 		if [ "$?" -ne "0" ]; then
 			exit $?
 		fi

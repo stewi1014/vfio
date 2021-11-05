@@ -2,7 +2,7 @@
 
 # Run once before the start of the vm as root
 
-source $(dirname "$(realpath $0)")/config.sh
+source "$(dirname "$(realpath "$0")")/config.sh"
 assert_root
 
 # List all processes using the nvidia GPU.

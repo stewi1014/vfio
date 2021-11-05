@@ -2,7 +2,7 @@
 
 # Run once after the stop of the vm as root
 
-source $(dirname "$(realpath $0)")/config.sh
+source "$(dirname "$(realpath "$0")")"/config.sh
 assert_root
 
 # Allow Linux to use all CPU cores.
