@@ -51,6 +51,10 @@ if script_unique; then
 		echo "VM already running"
 	else
 		sudo -A -s $src/start.sh
+		if [ "$?" -ne "0" ]; then
+			exit $?
+		fi
+
 		virsh --connect=$CONNECT start $DOMAIN
 	fi
 
