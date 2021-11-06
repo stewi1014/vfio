@@ -6,6 +6,6 @@ source "$(dirname "$(realpath "$0")")"/config.sh
 
 looking-glass-client \
     win:autoResize=yes \
-    input:escapeKey=100 \
+    input:escapeKey=54 \
     input:rawMouse=yes \
     egl:vsync=yes
