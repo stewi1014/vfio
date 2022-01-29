@@ -5,3 +5,4 @@ Icon=/home/stewi/Virtual/vfio/win10.svg
 Name=Windows 10
 StartupWMClass=looking-glass-client
 Type=Application
+Terminal=true
