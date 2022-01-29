@@ -8,4 +8,5 @@ looking-glass-client \
     win:autoResize=yes \
     input:escapeKey=54 \
     input:rawMouse=yes \
+    input:mouseSens=-5 \
     egl:vsync=yes
