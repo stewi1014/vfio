@@ -54,15 +54,15 @@
   <features>
     <acpi/>
     <apic/>
-    <hyperv>
+    <hyperv mode="custom">
       <relaxed state="on"/>
       <vapic state="on"/>
       <spinlocks state="on" retries="8191"/>
     </hyperv>
     <vmport state="off"/>
   </features>
-  <cpu mode="host-passthrough" check="none">
-    <topology sockets="1" cores="8" threads="2"/>
+  <cpu mode="host-passthrough" check="none" migratable="on">
+    <topology sockets="1" dies="1" cores="8" threads="2"/>
     <feature policy="require" name="topoext"/>
     <feature policy="disable" name="svm"/>
   </cpu>
