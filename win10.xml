@@ -199,12 +199,16 @@
       <image compression="off"/>
       <gl enable="no"/>
     </graphics>
-    <sound model="ich9">
-      <codec type="micro"/>
+    <sound model="usb">
       <audio id="1"/>
-      <address type="pci" domain="0x0000" bus="0x00" slot="0x1b" function="0x0"/>
+      <address type="usb" bus="0" port="5"/>
+    </sound>
+    <sound model="ich6">
+      <audio id="2"/>
+      <address type="pci" domain="0x0000" bus="0x08" slot="0x02" function="0x0"/>
     </sound>
     <audio id="1" type="pulseaudio" serverName="/run/user/1000/pulse/native"/>
+    <audio id="2" type="pulseaudio" serverName="/run/user/1000/pulse/native"/>
     <video>
       <model type="none"/>
     </video>
@@ -226,6 +230,13 @@
         <product id="0x0001"/>
       </source>
       <address type="usb" bus="0" port="1"/>
+    </hostdev>
+    <hostdev mode="subsystem" type="usb" managed="yes">
+      <source startupPolicy="optional">
+        <vendor id="0x04d8"/>
+        <product id="0xf94c"/>
+      </source>
+      <address type="usb" bus="0" port="4"/>
     </hostdev>
     <redirdev bus="usb" type="spicevmc">
       <address type="usb" bus="0" port="2"/>
