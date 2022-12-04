@@ -18,8 +18,8 @@
 
 # Passthrough
  - IOMMU Group 26
-	- 0b:00.0 Nvidia VGA [10de:2208] (nvidia, vfio-pci)
-	- 0b:00.1 Nvidia HDA [10de:1aef] (snd_hda_intel, vfio-pci)
+	- 0c:00.0 Nvidia VGA [10de:2208] (nvidia, vfio-pci)
+	- 0c:00.1 Nvidia HDA [10de:1aef] (snd_hda_intel, vfio-pci)
 
 # Notes
 
