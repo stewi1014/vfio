@@ -4,10 +4,15 @@
 
 source "$(dirname "$(realpath "$0")")"/config.sh
 
+
 looking-glass-client \
-    win:autoResize=yes \
-    input:escapeKey=54 \
-    input:rawMouse=yes \
-    input:mouseSens=-5 \
-    egl:debug=yes
+    input:escapeKey=54
+
+#    win:autoResize=yes \
+#    input:rawMouse=yes \
+#    input:mouseSens=-5 \
+#    input:grabKeyboardOnFocus=yes \
+#    spice:captureOnStart \
+#    win:fullScreen=yes \
+#    egl:debug=yes
 
