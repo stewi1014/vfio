@@ -83,13 +83,6 @@
     <emulator>/usr/bin/qemu-system-x86_64</emulator>
     <disk type="block" device="disk">
       <driver name="qemu" type="raw" cache="none" io="native"/>
-      <source dev="/dev/disk/by-id/ata-KINGSTON_SVP200S37A240G_50026B722B02D773"/>
-      <target dev="sdb" bus="sata"/>
-      <boot order="1"/>
-      <address type="drive" controller="0" bus="0" target="0" unit="1"/>
-    </disk>
-    <disk type="block" device="disk">
-      <driver name="qemu" type="raw" cache="none" io="native"/>
       <source dev="/dev/disk/by-id/ata-WDC_WD20EARX-008FB0_WD-WCAZAJ782296"/>
       <target dev="sde" bus="sata"/>
       <address type="drive" controller="0" bus="0" target="0" unit="4"/>
@@ -242,6 +235,7 @@
       <source>
         <address domain="0x0000" bus="0x04" slot="0x00" function="0x0"/>
       </source>
+      <boot order="1"/>
       <address type="pci" domain="0x0000" bus="0x0c" slot="0x00" function="0x0"/>
     </hostdev>
     <redirdev bus="usb" type="spicevmc">
