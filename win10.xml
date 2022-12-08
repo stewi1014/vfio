@@ -197,6 +197,11 @@
     </input>
     <input type="keyboard" bus="ps2"/>
     <input type="mouse" bus="ps2"/>
+    <tpm model="tpm-tis">
+      <backend type="passthrough">
+        <device path="/dev/tpm0"/>
+      </backend>
+    </tpm>
     <graphics type="spice" autoport="yes">
       <listen type="address"/>
       <image compression="off"/>
@@ -247,12 +252,6 @@
       </source>
       <boot order="1"/>
       <address type="pci" domain="0x0000" bus="0x0c" slot="0x00" function="0x0"/>
-    </hostdev>
-    <hostdev mode="subsystem" type="pci" managed="yes">
-      <source>
-        <address domain="0x0000" bus="0x0e" slot="0x00" function="0x1"/>
-      </source>
-      <address type="pci" domain="0x0000" bus="0x04" slot="0x00" function="0x0"/>
     </hostdev>
     <redirdev bus="usb" type="spicevmc">
       <address type="usb" bus="0" port="2"/>
