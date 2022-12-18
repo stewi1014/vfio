@@ -1,9 +1,9 @@
 <domain type="kvm">
-  <name>win10</name>
+  <name>win11</name>
   <uuid>95b6d857-c75d-1a43-3ac3-04421a099b2c</uuid>
   <metadata>
     <libosinfo:libosinfo xmlns:libosinfo="http://libosinfo.org/xmlns/libvirt/domain/1.0">
-      <libosinfo:os id="http://microsoft.com/win/10"/>
+      <libosinfo:os id="http://microsoft.com/win/11"/>
     </libosinfo:libosinfo>
   </metadata>
   <memory unit="KiB">65904640</memory>
@@ -46,9 +46,9 @@
     </baseBoard>
   </sysinfo>
   <os>
-    <type arch="x86_64" machine="pc-q35-6.1">hvm</type>
-    <loader readonly="yes" type="pflash">/usr/share/edk2-ovmf/x64/OVMF_CODE.fd</loader>
-    <nvram>/var/lib/libvirt/qemu/nvram/win10_VARS.fd</nvram>
+    <type arch="x86_64" machine="pc-q35-7.1">hvm</type>
+    <loader readonly="yes" secure="yes" type="pflash">/usr/share/edk2-ovmf/x64/OVMF_CODE.secboot.4m.fd</loader>
+    <nvram template="/usr/share/edk2/x64/OVMF_VARS.4m.fd">/var/lib/libvirt/qemu/nvram/win11_VARS.fd</nvram>
     <smbios mode="sysinfo"/>
   </os>
   <features>
@@ -60,6 +60,7 @@
       <spinlocks state="on" retries="8191"/>
     </hyperv>
     <vmport state="off"/>
+    <smm state="on"/>
   </features>
   <cpu mode="host-passthrough" check="none" migratable="on">
     <topology sockets="1" dies="1" cores="8" threads="2"/>
@@ -259,7 +260,9 @@
     <redirdev bus="usb" type="spicevmc">
       <address type="usb" bus="0" port="3"/>
     </redirdev>
-    <memballoon model="none"/>
+    <memballoon model="virtio">
+      <address type="pci" domain="0x0000" bus="0x04" slot="0x00" function="0x0"/>
+    </memballoon>
     <shmem name="looking-glass">
       <model type="ivshmem-plain"/>
       <size unit="M">128</size>

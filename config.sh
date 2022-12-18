@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export CONNECT="qemu:///system"
-export DOMAIN="win10"
+export DOMAIN="win11"
 export PIDFILE="/tmp/${DOMAIN}_script.pid"
 export GPU=0000:0b:00.0
 export GPU_AUDIO=0000:0b:00.1

@@ -3,14 +3,16 @@
 # This Repo
 
 #### Scripts
- - [win10.sh](./win10.sh) is the entry point. It starts the display client and possibly runs `start.sh`/`stop.sh` depending on VM state and other running instances of the script.
+ - [win11.sh](./win11.sh) is the entry point. It starts the display client and possibly runs `start.sh`/`stop.sh` depending on VM state and other running instances of the script.
  - [start.sh](./start.sh) runs **once** before the VM starts
  - [stop.sh](./stop.sh) runs **once** after the VM stops
- - [display.sh](./display.sh) runs **every** time `win10.sh` is executed, waiting for `start.sh` and VM startup to complete if relavent.
+ - [display.sh](./display.sh) runs **every** time `win11.sh` is executed, waiting for `start.sh` and VM startup to complete if relavent.
 
 #### Other
- - [win10.desktop/win10.svg](./win10.desktop)
- - [win10.xml](./win10.xml) libvirt configuration
+ - [win11.desktop/win10.svg](./win11.desktop)
+ - [win11.xml](./win11.xml) libvirt configuration
+
+ * TODO; replace windows 10 with windows 11 logo
 
 # Kernel flags
  - vfio-pci.ids=10de:2208,10de:1aef

@@ -1,0 +1,20 @@
+[Desktop Entry]
+Comment[en_AU]=Run Windows 11
+Comment=Run Windows 11
+Exec=/home/stewi/Virtual/vfio/win11.sh
+GenericName[en_AU]=
+GenericName=
+Icon=/home/stewi/Virtual/vfio/win10.svg
+MimeType=
+Name[en_AU]=Windows 11
+Name=Windows 11
+Path=
+StartupNotify=true
+StartupWMClass=looking-glass-client
+Terminal=true
+TerminalOptions=\s--noclose
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=none
+X-KDE-SubstituteUID=false
+X-KDE-Username=
