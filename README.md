@@ -12,8 +12,6 @@
  - [win11.desktop/win10.svg](./win11.desktop)
  - [win11.xml](./win11.xml) libvirt configuration
 
- * TODO; replace windows 10 with windows 11 logo
-
 # Kernel flags
  - vfio-pci.ids=10de:2208,10de:1aef
  - signore_msrs=N report_ignored_msrs=Y
