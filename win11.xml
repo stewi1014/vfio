@@ -172,9 +172,9 @@
     <controller type="virtio-serial" index="0">
       <address type="pci" domain="0x0000" bus="0x03" slot="0x00" function="0x0"/>
     </controller>
-    <interface type="network">
-      <mac address="52:54:00:6e:b2:66"/>
-      <source network="default"/>
+    <interface type="bridge">
+      <mac address="52:54:00:83:b3:e3"/>
+      <source bridge="br0"/>
       <model type="virtio"/>
       <address type="pci" domain="0x0000" bus="0x01" slot="0x00" function="0x0"/>
     </interface>
