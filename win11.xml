@@ -36,6 +36,7 @@
       <entry name="manufacturer">System manufacturer</entry>
       <entry name="product">System Product Name</entry>
       <entry name="version">System Version</entry>
+      <entry name="serial">System Serial Number</entry>
       <entry name="uuid">95b6d857-c75d-1a43-3ac3-04421a099b2c</entry>
     </system>
     <baseBoard>
