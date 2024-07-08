@@ -240,8 +240,8 @@
     </hostdev>
     <hostdev mode="subsystem" type="usb" managed="yes">
       <source>
-        <vendor id="0x0a12"/>
-        <product id="0x0001"/>
+        <vendor id="0x0b05"/>
+        <product id="0x190e"/>
       </source>
       <address type="usb" bus="0" port="1"/>
     </hostdev>
