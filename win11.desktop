@@ -6,4 +6,3 @@ Icon=/home/stewi/Virtual/vfio/win11.svg
 Name=Windows 11
 StartupWMClass=looking-glass-client
 Type=Application
-Terminal=true
