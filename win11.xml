@@ -199,14 +199,14 @@
       <target type="virtio" name="com.redhat.spice.0"/>
       <address type="virtio-serial" controller="0" bus="0" port="2"/>
     </channel>
+    <channel type="unix">
+      <target type="virtio" name="org.qemu.guest_agent.0"/>
+      <address type="virtio-serial" controller="0" bus="0" port="1"/>
+    </channel>
     <input type="mouse" bus="virtio">
-      <address type="pci" domain="0x0000" bus="0x0a" slot="0x00" function="0x0"/>
     </input>
     <input type="keyboard" bus="virtio">
-      <address type="pci" domain="0x0000" bus="0x09" slot="0x00" function="0x0"/>
     </input>
-    <input type="keyboard" bus="ps2"/>
-    <input type="mouse" bus="ps2"/>
     <tpm model="tpm-tis">
       <backend type="passthrough">
         <device path="/dev/tpm0"/>
@@ -260,9 +260,7 @@
       <address type="usb" bus="0" port="3"/>
     </redirdev>
     <watchdog model="itco" action="reset"/>
-    <memballoon model="virtio">
-      <address type="pci" domain="0x0000" bus="0x04" slot="0x00" function="0x0"/>
-    </memballoon>
+    <memballoon model="none"/>
     <shmem name="looking-glass">
       <model type="ivshmem-plain"/>
       <size unit="M">128</size>
