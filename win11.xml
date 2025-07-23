@@ -85,8 +85,14 @@
     <disk type="block" device="disk">
       <driver name="qemu" type="raw" cache="none" io="native"/>
       <source dev="/dev/disk/by-id/ata-WDC_WD20EARX-008FB0_WD-WCAZAJ782296"/>
-      <target dev="sde" bus="sata"/>
+      <target dev="sde" bus="scsi"/>
       <address type="drive" controller="0" bus="0" target="0" unit="4"/>
+    </disk>
+    <disk type="block" device="disk">
+      <driver name="qemu" type="raw" cache="none" io="native"/>
+      <source dev="/dev/disk/by-id/ata-KINGSTON_SVP200S37A240G_50026B722B02D773"/>
+      <target dev="sdf" bus="scsi" rotation_rate="1"/>
+      <address type="drive" controller="0" bus="0" target="0" unit="5"/>
     </disk>
     <disk type="file" device="cdrom">
       <driver name="qemu" type="raw"/>
@@ -171,6 +177,9 @@
     </controller>
     <controller type="virtio-serial" index="0">
       <address type="pci" domain="0x0000" bus="0x03" slot="0x00" function="0x0"/>
+    </controller>
+    <controller type="scsi" index="0" model="virtio-scsi">
+      <address type="pci" domain="0x0000" bus="0x0b" slot="0x00" function="0x0"/>
     </controller>
     <interface type="bridge">
       <mac address="52:54:00:83:b3:e3"/>
